@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <title>Omar Hassan Ali | Frontend Developer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Frontend Developer based in Mogadishu, Somalia. Specializing in HTML, CSS, JavaScript, and React." />
+  <meta name="keywords" content="frontend developer, web developer, HTML, CSS, JavaScript, React, Somalia" />
+  <meta name="author" content="Omar Hassan Ali" />
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Custom JS -->
+  <script src="./javascript/index.js" defer></script>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./css/style.css">
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          keyframes: {
+            typing: {
+              "0%": { width: "0%" },
+              "50%": { width: "100%" },
+              "100%": { width: "0%" }
+            },
+            blink: {
+              "50%": { borderColor: "transparent" }
+            },
+            float: {
+              "0%, 100%": { transform: "translateY(0)" },
+              "50%": { transform: "translateY(-10px)" }
+            }
+          },
+          animation: {
+            typing: "typing 4s steps(30, end) infinite, blink 0.8s infinite",
+            float: "float 3s ease-in-out infinite"
+          },
+          colors: {
+            primary: {
+              50: '#f5f3ff',
+              100: '#ede9fe',
+              200: '#ddd6fe',
+              300: '#c4b5fd',
+              400: '#a78bfa',
+              500: '#8b5cf6',
+              600: '#7c3aed',
+              700: '#6d28d9',
+              800: '#5b21b6',
+              900: '#4c1d95',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gradient-to-br from-slate-200 via-slate-100 to-white dark:from-slate-950 dark:via-slate-900 dark:to-slate-900 min-h-screen text-slate-900 dark:text-slate-100 transition-colors duration-300">
+
+  <!-- MAIN CONTAINER -->
+  <div class="max-w-6xl mx-auto px-4 md:px-6 py-6 space-y-6">
+
+    <!-- HEADER / NAVBAR -->
+    <header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur border border-slate-200/70 dark:border-slate-700 
+    rounded-2xl px-5 md:px-8 py-4 shadow-sm fade-up 
+    flex items-center justify-between sticky top-6 z-50">
+      <!-- Left: Logo -->
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-violet-600 flex items-center justify-center text-white font-semibold shadow-lg">
+          O
+        </div>
+        <span class="font-semibold text-lg bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">
+          Omar
+        </span>
+      </div>
+
+      <!-- Center: Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#home" class="hover:text-violet-600 dark:hover:text-violet-400 transition-colors font-medium">Home</a>
+        <a href="#about" class="hover:text-violet-600 dark:hover:text-violet-400 transition-colors font-medium">About</a>
+        <a href="#services" class="hover:text-violet-600 dark:hover:text-violet-400 transition-colors font-medium">Services</a>
+        <a href="#portfolio" class="hover:text-violet-600 dark:hover:text-violet-400 transition-colors font-medium">Portfolio</a>
+        <a href="#contact" class="hover:text-violet-600 dark:hover:text-violet-400 transition-colors font-medium">Contact</a>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+
+      <!-- Right: Contact + Dark toggle -->
+      <div class="hidden md:flex items-center gap-3">
+           <button 
+           id="theme-toggle"
+           class="w-9 h-9 flex items-center justify-center rounded-full border border-slate-200 
+         dark:border-slate-700 text-xs font-medium hover:bg-slate-100 
+         dark:hover:bg-slate-800 transition"
+             aria-label="Toggle theme">
+  🌙
+          </button>
+        <a href="#contact"
+          class="bg-violet-600 hover:bg-violet-700 text-white text-sm px-4 py-2 rounded-lg font-medium transition transform hover:-translate-y-0.5 shadow-md">
+          Contact Me
+        </a>
+      </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden bg-white/95 dark:bg-slate-900/95 backdrop-blur border border-slate-200/70 dark:border-slate-700 rounded-2xl p-4 shadow-lg hidden absolute top-24 left-4 right-4 z-40">
+      <nav class="flex flex-col gap-3">
+        <a href="#home" class="py-2 px-4 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition">Home</a>
+        <a href="#about" class="py-2 px-4 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition">About</a>
+        <a href="#services" class="py-2 px-4 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition">Services</a>
+        <a href="#portfolio" class="py-2 px-4 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition">Portfolio</a>
+        <a href="#contact" class="py-2 px-4 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition">Contact</a>
+        <div class="flex items-center gap-3 pt-3 border-t border-slate-200 dark:border-slate-700">
+          <button id="theme-toggle-mobile"
+            class="w-10 h-10 flex items-center justify-center rounded-full border border-slate-200 
+                  dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+            aria-label="Toggle theme">
+            🌙
+          </button>
+          <a href="#contact"
+            class="flex-1 bg-violet-600 hover:bg-violet-700 text-white text-center py-2 rounded-lg font-medium transition">
+            Contact
+          </a>
+        </div>
+      </nav>
+    </div>
+
+    <!-- HERO -->
+    <section id="home"
+            class="bg-white/80 dark:bg-slate-900/80 backdrop-blur border border-slate-200/70 dark:border-slate-700 rounded-3xl shadow-md grid md:grid-cols-2 gap-8 md:gap-10 px-6 md:px-10 py-10 items-center fade-up">
+      <!-- LEFT: Text -->
+      <div class="space-y-5 order-2 md:order-1">
+        <span class="inline-flex items-center text-xs font-semibold bg-gradient-to-r from-pink-500 to-rose-500 text-white px-4 py-1 rounded-full shadow">
+          FRONTEND DEVELOPER • FREEBIES
+        </span>
+
+        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
+          Hello, I'm <br />
+          <span class="block overflow-hidden whitespace-nowrap border-r-2 border-black dark:border-white
+                    animate-typing text-slate-900 dark:text-violet-400 w-full max-w-fit">
+            Omar Hassan Ali
+          </span>
+        </h1>
+
+        <p class="text-sm md:text-base text-slate-600 dark:text-slate-300 max-w-xl">
+          I'm a <span class="font-semibold text-violet-600 dark:text-violet-400">Frontend Developer</span> based in
+          <span class="font-medium">Mogadishu, Somalia</span>.  
+          I enjoy building clean, responsive websites and dashboards using HTML, CSS, Tailwind, JavaScript and React.
+        </p>
+
+        <div class="flex flex-wrap gap-3">
+          <a href="#contact"
+            class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-violet-600 hover:bg-violet-700 text-white text-sm font-semibold shadow-lg transition transform hover:-translate-y-0.5 hover:shadow-xl">
+            Contact Me
+          </a>
+          <a href="#portfolio"
+            class="inline-flex items-center justify-center px-6 py-3 rounded-xl border border-slate-300 dark:border-slate-600 text-sm font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 transition transform hover:-translate-y-0.5">
+            View Portfolio
+          </a>
+        </div>
+
+        <!-- Social Links -->
+        <div class="flex gap-4 pt-4">
+          <a href="#" class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-violet-100 dark:hover:bg-violet-900 transition">
+            <span class="text-sm">Git</span>
+          </a>
+          <a href="#" class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-blue-100 dark:hover:bg-blue-900 transition">
+            <span class="text-sm">Li</span>
+          </a>
+          <a href="#" class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-pink-100 dark:hover:bg-pink-900 transition">
+            <span class="text-sm">Ig</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT: Photo card -->
+      <div class="flex justify-center md:justify-end order-1 md:order-2">
+        <div class="relative group">
+          <div class="absolute -inset-4 bg-gradient-to-r from-violet-600 to-purple-600 rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-500"></div>
+          <div class="relative bg-slate-100 dark:bg-slate-800 rounded-3xl p-3 shadow-xl transform transition duration-300 group-hover:-translate-y-2">
+            <img
+              src="images/om.png"
+              alt="Photo of Omar Hassan Ali"
+              class="rounded-2xl w-64 md:w-72 h-80 object-cover"
+              onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'"
+            />
+            <!-- Floating badge -->
+            <div class="absolute -bottom-3 -right-3 bg-violet-600 text-white px-4 py-2 rounded-xl shadow-lg animate-float">
+              <span class="text-xs font-semibold">Available for work</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="grid grid-cols-2 md:grid-cols-4 gap-4 fade-up">
+      <div class="bg-white/80 dark:bg-slate-900/80 border border-slate-200/70 dark:border-slate-700 rounded-2xl p-4 text-center shadow-sm hover:-translate-y-1 hover:shadow-md transition duration-300">
+        <p class="text-2xl font-bold text-violet-600 dark:text-violet-400">4+</p>
+        <p class="text-xs text-slate-500 dark:text-slate-400">Years Learning & Building</p>
+      </div>
+      <div class="bg-white/80 dark:bg-slate-900/80 border border-slate-200/70 dark:border-slate-700 rounded-2xl p-4 text-center shadow-sm hover:-translate-y-1 hover:shadow-md transition duration-300">
+        <p class="text-2xl font-bold text-violet-600 dark:text-violet-400">10+</p>
+        <p class="text-xs text-slate-500 dark:text-slate-400">Personal Projects</p>
+      </div>
+      <div class="bg-white/80 dark:bg-slate-900/80 border border-slate-200/70 dark:border-slate-700 rounded-2xl p-4 text-center shadow-sm hover:-translate-y-1 hover:shadow-md transition duration-300">
+        <p class="text-2xl font-bold text-violet-600 dark:text-violet-400">4</p>
+        <p class="text-xs text-slate-500 dark:text-slate-400">Tech Stacks Mastered</p>
+      </div>
+      <div class="bg-white/80 dark:bg-slate-900/80 border border-slate-200/70 dark:border-slate-700 rounded-2xl p-4 text-center shadow-sm hover:-translate-y-1 hover:shadow-md transition duration-300">
+        <p class="text-2xl font-bold text-violet-600 dark:text-violet-400">∞</p>
+        <p class="text-xs text-slate-500 dark:text-slate-400">Motivation to Learn</p>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about"
+            class="bg-white/80 dark:bg-slate-900/80 border border-slate-200/70 dark:border-slate-700 rounded-3xl shadow-md px-6 md:px-10 py-8 space-y-4 fade-up">
+      <h2 class="text-2xl font-bold mb-2 flex items-center gap-2">
+        <span class="w-8 h-1 bg-violet-600 rounded-full"></span>
+        About Me
+      </h2>
+      <p class="text-sm md:text-base text-slate-600 dark:text-slate-300">
+        I'm Omar, a passionate frontend developer focused on building clean and user-friendly interfaces.
+        I enjoy turning ideas into real web pages using modern technologies like
+        <span class="font-semibold text-violet-600 dark:text-violet-400">HTML, CSS, TailwindCSS and JavaScript</span>.  
+        I practice every day by creating landing pages, dashboards, and small web apps.
+      </p>
+      <p class="text-sm md:text-base text-slate-600 dark:text-slate-300">
+        My goals are to improve my React skills, learn more about backend APIs, and eventually work as a professional developer
+        building useful products for people and businesses.
+      </p>
+      
+      <!-- Skills -->
+      <div class="pt-4">
+        <h3 class="font-semibold mb-3">Technologies I Use:</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1 bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-full text-xs font-medium">HTML5</span>
+          <span class="px-3 py-1 bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-full text-xs font-medium">CSS3</span>
+          <span class="px-3 py-1 bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-full text-xs font-medium">JavaScript</span>
+          <span class="px-3 py-1 bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-full text-xs font-medium">Tailwind CSS</span>
+          <span class="px-3 py-1 bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-full text-xs font-medium">React</span>
+          <span class="px-3 py-1 bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-full text-xs font-medium">Git</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="space-y-5 fade-up">
+      <h2 class="text-2xl font-bold flex items-center gap-2">
+        <span class="w-8 h-1 bg-violet-600 rounded-full"></span>
+        Services
+      </h2>
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="bg-white/80 dark:bg-slate-900/80 border border-slate-200/70 dark:border-slate-700 rounded-2xl p-5 shadow-sm hover:-translate-y-1 hover:shadow-md transition duration-300 group">
+          <div class="w-10 h-10 rounded-lg bg-violet-100 dark:bg-violet-900/30 flex items-center justify-center mb-4 group-hover:bg-violet-200 dark:group-hover:bg-violet-800 transition">
+            <span class="text-violet-600 dark:text-violet-400 text-lg">🖥️</span>
+          </div>
+          <h3 class="font-semibold mb-2">Frontend Development</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300">
+            Building responsive websites using HTML, CSS, Tailwind, and JavaScript with clean and reusable code.
+          </p>
+        </div>
+        <div class="bg-white/80 dark:bg-slate-900/80 border border-slate-200/70 dark:border-slate-700 rounded-2xl p-5 shadow-sm hover:-translate-y-1 hover:shadow-md transition duration-300 group">
+          <div class="w-10 h-10 rounded-lg bg-violet-100 dark:bg-violet-900/30 flex items-center justify-center mb-4 group-hover:bg-violet-200 dark:group-hover:bg-violet-800 transition">
+            <span class="text-violet-600 dark:text-violet-400 text-lg">🎨</span>
+          </div>
+          <h3 class="font-semibold mb-2">UI Implementation</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300">
+            Turning Figma / design inspirations into real web pages that match the layout and style.
+          </p>
+        </div>
+        <div class="bg-white/80 dark:bg-slate-900/80 border border-slate-200/70 dark:border-slate-700 rounded-2xl p-5 shadow-sm hover:-translate-y-1 hover:shadow-md transition duration-300 group">
+          <div class="w-10 h-10 rounded-lg bg-violet-100 dark:bg-violet-900/30 flex items-center justify-center mb-4 group-hover:bg-violet-200 dark:group-hover:bg-violet-800 transition">
+            <span class="text-violet-600 dark:text-violet-400 text-lg">📊</span>
+          </div>
+          <h3 class="font-semibold mb-2">Dashboards & Admin Panels</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300">
+            Creating simple admin dashboards with tables, filters, and statistics for web applications.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="space-y-5 fade-up">
+      <h2 class="text-2xl font-bold flex items-center gap-2">
+        <span class="w-8 h-1 bg-violet-600 rounded-full"></span>
+        Portfolio
+      </h2>
+      <p class="text-sm text-slate-600 dark:text-slate-300">
+        A few projects I've been practicing with (layouts and components built using HTML, CSS, Tailwind & React).
+      </p>
+      <div class="grid md:grid-cols-3 gap-4">
+        <!-- Project 1 -->
+        <article class="bg-white/80 dark:bg-slate-900/80 border border-slate-200/70 dark:border-slate-700 rounded-2xl p-4 shadow-sm hover:-translate-y-1 hover:shadow-md transition duration-300 group">
+          <div class="h-40 bg-gradient-to-br from-violet-500 to-purple-600 rounded-xl mb-4 flex items-center justify-center">
+            <span class="text-white text-4xl">📱</span>
+          </div>
+          <h3 class="font-semibold mb-1">Telecom Admin Dashboard</h3>
+          <p class="text-xs text-violet-600 dark:text-violet-400 mb-2">React • Tailwind</p>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mb-3">
+            Dashboard with sidebar, subscriber logs, filters, CSV export and analytics cards.
+          </p>
+          <div class="flex gap-2">
+            <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded">React</span>
+            <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded">Tailwind</span>
+            <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded">Charts</span>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="bg-white/80 dark:bg-slate-900/80 border border-slate-200/70 dark:border-slate-700 rounded-2xl p-4 shadow-sm hover:-translate-y-1 hover:shadow-md transition duration-300 group">
+          <div class="h-40 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl mb-4 flex items-center justify-center">
+            <span class="text-white text-4xl">🌱</span>
+          </div>
+          <h3 class="font-semibold mb-1">AgriVista Landing Page</h3>
+          <p class="text-xs text-violet-600 dark:text-violet-400 mb-2">HTML • CSS</p>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mb-3">
+            A farming and agriculture themed landing page with hero, services, and product sections.
+          </p>
+          <div class="flex gap-2">
+            <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded">HTML</span>
+            <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded">CSS</span>
+            <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded">Responsive</span>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="bg-white/80 dark:bg-slate-900/80 border border-slate-200/70 dark:border-slate-700 rounded-2xl p-4 shadow-sm hover:-translate-y-1 hover:shadow-md transition duration-300 group">
+          <div class="h-40 bg-gradient-to-br from-orange-500 to-rose-600 rounded-xl mb-4 flex items-center justify-center">
+            <span class="text-white text-4xl">🍕</span>
+          </div>
+          <h3 class="font-semibold mb-1">Food Delivery Website</h3>
+          <p class="text-xs text-violet-600 dark:text-violet-400 mb-2">React • Tailwind</p>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mb-3">
+            Modern food ordering UI with navbar, hero section, menu, and responsive cards.
+          </p>
+          <div class="flex gap-2">
+            <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded">React</span>
+            <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded">Tailwind</span>
+            <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded">API</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+   
+
+        <!-- CONTACT -->
+<section id="contact"
+        class="bg-white/80 dark:bg-slate-900/80 border border-slate-200/70 dark:border-slate-700 rounded-3xl shadow-md px-6 md:px-10 py-8 space-y-6 fade-up mb-4">
+  <h2 class="text-2xl font-bold flex items-center gap-2">
+    <span class="w-8 h-1 bg-violet-600 rounded-full"></span>
+    Contact
+  </h2>
+  <p class="text-sm text-slate-600 dark:text-slate-300">
+    Want to talk about a project or collaboration? Send me a message.
+  </p>
+  
+  <div class="grid md:grid-cols-3 gap-8">
+    <!-- Contact Info -->
+    <div class="space-y-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-lg bg-violet-100 dark:bg-violet-900/30 flex items-center justify-center">
+          <span class="text-violet-600 dark:text-violet-400">📍</span>
+        </div>
+        <div>
+          <p class="font-medium">Location</p>
+          <p class="text-sm text-slate-600 dark:text-slate-400">Mogadishu, Somalia</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-lg bg-violet-100 dark:bg-violet-900/30 flex items-center justify-center">
+          <span class="text-violet-600 dark:text-violet-400">✉️</span>
+        </div>
+        <div>
+          <p class="font-medium">Email</p>
+          <p class="text-sm text-slate-600 dark:text-slate-400">hello@omar.dev</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="md:col-span-2">
+      <!-- Formspree Form - Replace YOUR_FORMSPREE_FORM_ID with your actual ID -->
+      <form 
+      
+        method="POST"
+        id="contact-form"
+        class="grid gap-4"
+      >
+        <!-- ===== FORMSPREE HIDDEN FIELDS START ===== -->
+        
+        <!-- 1. Email Subject Line -->
+        <input 
+          type="hidden" 
+          name="_subject" 
+          value="New Contact Form Submission from Portfolio Website"
+        >
+        
+        <!-- 2. Email Format (plain text) -->
+        <input 
+          type="hidden" 
+          name="_format" 
+          value="plain"
+        >
+        
+        <!-- 3. Honeypot Field for Spam Prevention -->
+        <input 
+          type="text" 
+          name="_gotcha" 
+          style="display: none;"
+          tabindex="-1"
+          autocomplete="off"
+        >
+        
+        <!-- 4. Optional: Redirect After Submission -->
+        <!-- Uncomment if you want to redirect to a thank you page -->
+        <!-- 
+        <input 
+          type="hidden" 
+          name="_next" 
+          value="https://yourwebsite.com/thank-you.html"
+        >
+        -->
+        
+        <!-- 5. Optional: Auto-Reply Configuration -->
+        <!-- Uncomment if you want to send auto-reply -->
+        <!-- 
+        <input 
+          type="hidden" 
+          name="_autoresponse" 
+          value="Thank you for contacting me! I'll get back to you soon."
+        >
+        -->
+        
+        <!-- 6. Optional: CC or BCC -->
+        <!-- 
+        <input type="hidden" name="_cc" value="another@email.com">
+        -->
+        
+        <!-- ===== FORMSPREE HIDDEN FIELDS END ===== -->
+        
+        <!-- 7. Form Language (Optional) -->
+        <input 
+          type="hidden" 
+          name="_language" 
+          value="en"
+        >
+        
+        <!-- 8. Reply-To Email (makes it easy to reply) -->
+        <!-- This will be automatically set to the user's email -->
+        
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label for="name" class="block text-xs mb-1 font-medium">
+              Name <span class="text-red-500">*</span>
+            </label>
+            <input 
+              type="text" 
+              name="name" 
+              id="name"
+              required   
+              class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 transition" 
+              placeholder="Your name"
+              minlength="2"
+              maxlength="100"
+            >
+          </div>
+          <div>
+            <label for="email" class="block text-xs mb-1 font-medium">
+              Email <span class="text-red-500">*</span>
+            </label>
+            <input 
+              type="email" 
+              name="email" 
+              id="email"
+              required
+              class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 transition"
+              placeholder="you@example.com"
+              pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+            >
+          </div>
+        </div>
+        
+        <div>
+          <label for="message" class="block text-xs mb-1 font-medium">
+            Message <span class="text-red-500">*</span>
+          </label>
+          <textarea 
+            name="message" 
+            id="message"
+            rows="4" 
+            required
+            class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 transition resize-none"
+            placeholder="Tell me about your project, timeline, and budget..."
+            minlength="10"
+            maxlength="1000"
+          ></textarea>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
+            Please include details about your project, timeline, and budget.
+          </p>
+        </div>
+        
+        <!-- Optional: Phone Number Field -->
+        <!-- 
+        <div>
+          <label for="phone" class="block text-xs mb-1 font-medium">Phone Number (Optional)</label>
+          <input 
+            type="tel" 
+            name="phone" 
+            id="phone"
+            class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 transition"
+            placeholder="+252 61 123 4567"
+            pattern="[\+\d\s\-\(\)]+"
+          >
+        </div>
+        -->
+        
+        <!-- Optional: Project Type Dropdown -->
+        <!-- 
+        <div>
+          <label for="project-type" class="block text-xs mb-1 font-medium">Project Type</label>
+          <select 
+            name="project-type" 
+            id="project-type"
+            class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 transition"
+          >
+            <option value="" disabled selected>Select project type</option>
+            <option value="website">Website Development</option>
+            <option value="dashboard">Dashboard/Admin Panel</option>
+            <option value="landing-page">Landing Page</option>
+            <option value="consultation">Consultation</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        -->
+        
+        <!-- Optional: Budget Range -->
+        <!-- 
+        <div>
+          <label class="block text-xs mb-1 font-medium">Budget Range (USD)</label>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+            <label class="flex items-center">
+              <input type="radio" name="budget" value="$500-$1000" class="mr-2">
+              <span class="text-sm">$500-$1000</span>
+            </label>
+            <label class="flex items-center">
+              <input type="radio" name="budget" value="$1000-$5000" class="mr-2">
+              <span class="text-sm">$1000-$5000</span>
+            </label>
+            <label class="flex items-center">
+              <input type="radio" name="budget" value="$5000+" class="mr-2">
+              <span class="text-sm">$5000+</span>
+            </label>
+            <label class="flex items-center">
+              <input type="radio" name="budget" value="not-sure" class="mr-2">
+              <span class="text-sm">Not sure</span>
+            </label>
+          </div>
+        </div>
+        -->
+        
+        <!-- Privacy Policy Checkbox -->
+        <div class="flex items-start">
+          <input 
+            type="checkbox" 
+            name="privacy" 
+            id="privacy"
+            required
+            class="mt-1 mr-2 rounded border-slate-300 text-violet-600 focus:ring-violet-500"
+          >
+          <label for="privacy" class="text-xs text-slate-600 dark:text-slate-400">
+            I agree to the <a href="#" class="text-violet-600 dark:text-violet-400 hover:underline">Privacy Policy</a> 
+            and allow Omar to contact me about my message.
+          </label>
+        </div>
+        
+        <div class="flex gap-3">
+          <button 
+            type="submit"
+            class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-violet-600 hover:bg-violet-700 text-white text-sm font-semibold shadow-lg transition transform hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed flex-1"
+            id="submit-btn"
+          >
+            <span id="submit-text">Send Message</span>
+            <span id="submit-spinner" class="hidden ml-2">
+              <svg class="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+            </span>
+          </button>
+          
+          <button 
+            type="reset"
+            class="px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+          >
+            Clear
+          </button>
+        </div>
+        
+        <!-- Form Status Messages -->
+        <div id="form-status" class="hidden text-sm rounded-xl p-4"></div>
+        
+        <!-- Formspree Success/Error Message Container -->
+        <div id="formspree-response" class="hidden"></div>
+      </form>
+      
+      <!-- Alternative Contact Methods -->
+      <div class="mt-6 pt-6 border-t border-slate-200 dark:border-slate-700">
+        <p class="text-sm text-slate-600 dark:text-slate-400 mb-3">
+          Prefer other methods?
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="mailto:hello@omar.dev" 
+             class="inline-flex items-center gap-2 text-sm px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+            <span>✉️</span>
+            <span>Email Directly</span>
+          </a>
+          <a href="https://wa.me/252615041990" 
+             target="_blank"
+             class="inline-flex items-center gap-2 text-sm px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+            <span>💬</span>
+            <span>WhatsApp</span>
+          </a>
+          <a href="https://t.me/yourusername" 
+             target="_blank"
+             class="inline-flex items-center gap-2 text-sm px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+            <span>📱</span>
+            <span>Telegram</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- FOOTER -->
+    <footer class="text-center py-6 border-t border-slate-200/70 dark:border-slate-700/70">
+      <div class="flex flex-col items-center gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-violet-600 flex items-center justify-center text-white font-semibold">
+            O
+          </div>
+          <span class="font-semibold text-lg">Omar Hassan Ali</span>
+        </div>
+        <p class="text-sm text-slate-600 dark:text-slate-400 max-w-md">
+          Frontend Developer passionate about building beautiful, functional web experiences.
+        </p>
+        <div class="flex gap-4">
+          <a href="#" class="text-slate-600 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-400 transition">GitHub</a>
+          <a href="#" class="text-slate-600 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-400 transition">LinkedIn</a>
+          <a href="#" class="text-slate-600 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-400 transition">Twitter</a>
+        </div>
+        <p class="text-xs text-slate-500 dark:text-slate-500 pt-4">
+          © <span id="year"></span> Omar Hassan Ali. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-xl shadow-xl transform translate-x-full transition-transform duration-300 z-50">
+    <div class="flex items-center gap-2">
+      <span>✓</span>
+      <span id="toast-message">Message sent successfully!</span>
+    </div>
+  </div>
+
+
+
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-analytics.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyAo8Lt0ECs42f2bRidJI1esS6hXqSAEvOI",
+    authDomain: "omar-portfolio-648c4.firebaseapp.com",
+    projectId: "omar-portfolio-648c4",
+    storageBucket: "omar-portfolio-648c4.firebasestorage.app",
+    messagingSenderId: "365975283522",
+    appId: "1:365975283522:web:0ba537e4284f43364a0adb",
+    measurementId: "G-QB3BH9Q8L8"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
