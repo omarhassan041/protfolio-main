@@ -1,107 +1,55 @@
+## 👨‍💻 About Me
 
-# Omar Hassan Ali - Portfolio Website
+<p align="center">
+  <img src="images/om.png" width="250" style="border-radius:20px;" />
+</p>
 
-A modern, responsive portfolio website built with HTML, CSS (Tailwind), and JavaScript.
+Hi, I'm **Omar Hassan Ali**, a passionate **Frontend Developer** based in **Mogadishu, Somalia**.
 
-## Features
+I enjoy building modern, responsive, and user-friendly web interfaces using modern frontend technologies.
 
-- 🌓 Dark/Light mode toggle
-- 📱 Fully responsive design
-- 📧 Contact form with EmailJS integration
-- 🎨 Smooth animations and transitions
-- 📄 Portfolio showcase
-- 🔗 Social media integration
+---
 
-## Setup Instructions
+## 🚀 What I Do
 
-1. **Clone or download the project files**
+- 🌐 Responsive Website Development
+- 🎨 Modern UI/UX Interfaces
+- ⚡ Frontend Development with React
+- 📱 Mobile-Friendly Layouts
+- 💼 Dashboard & Portfolio Design
 
-2. **Add your profile photo**
-   - Place your photo in the `images/` folder as `om.png`
-   - Or update the image path in `index.html` line 151
+---
 
-3. **Set up EmailJS (for contact form)**
-   1. Sign up at [EmailJS.com](https://www.emailjs.com/)
-   2. Create an email service (Gmail, Outlook, etc.)
-   3. Create an email template for contact form messages
-   4. Get your credentials:
-      - Public Key
-      - Service ID
-      - Template ID
-   5. Update `javascript/index.js` lines 3-5 with your credentials
+## 🛠 Technologies I Use
 
-4. **Open the website**
-   - Simply open `index.html` in your browser
-   - Or deploy to GitHub Pages, Netlify, Vercel, etc.
+<p align="left">
 
-## File Structure
+<img src="https://skillicons.dev/icons?i=html" height="45" />
+<img src="https://skillicons.dev/icons?i=css" height="45" />
+<img src="https://skillicons.dev/icons?i=js" height="45" />
+<img src="https://skillicons.dev/icons?i=tailwind" height="45" />
+<img src="https://skillicons.dev/icons?i=react" height="45" />
+<img src="https://skillicons.dev/icons?i=git" height="45" />
 
+</p>
 
+---
 
+## 📌 Goals
 
+- Become a Professional Full Stack Developer
+- Build modern real-world web applications
+- Improve React and backend API skills
+- Work on impactful digital products
 
+---
 
+## 📬 Contact
 
+### Omar Hassan Ali
 
-## Customization
-
-1. **Personal Information**
-   - Update name, location, and bio in `index.html`
-   - Modify portfolio projects in the Portfolio section
-   - Update social media links
-
-2. **Styling**
-   - Modify colors in Tailwind config (in `index.html` head)
-   - Update animations in `css/style.css`
-   - Change gradients and shadows as needed
-
-3. **Features**
-   - Add more portfolio items
-   - Include resume/CV download
-   - Add blog section
-   - Integrate with GitHub API
-
-## Technologies Used
-
-- HTML5
-- CSS3 with Tailwind CSS
-- JavaScript (ES6+)
-- EmailJS for contact form
-- Animate.css (via Tailwind)
-- Font Awesome (optional, if added)
-
-## Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers
-
-## Deployment
-
-### GitHub Pages
-1. Push to GitHub repository
-2. Go to Settings > Pages
-3. Select main branch as source
-4. Your site will be at `username.github.io/repository-name`
-
-### Netlify
-1. Drag and drop folder to Netlify
-2. Or connect GitHub repository
-3. Automatic deployment on push
-
-### Vercel
-1. Import GitHub repository
-2. Deploy with default settings
-
-## License
-
-MIT License - feel free to use this template for your own portfolio!
-
-## Contact
-
-Omar Hassan Ali
-- Email: hello@omar.dev
-- Location: Mogadishu, Somalia
-- Portfolio: [omar.dev](https://omar.dev)
+- 📧 Email: cumarxasan04@gmail.com
+- 📍 Location: Mogadishu, Somalia
+- 💻 Frontend Developer
+- 🔗 GitHub: https://github.com/omarhassan041
+- 🔗 LinkedIn: https://linkedin.com/in/omarhassan041
